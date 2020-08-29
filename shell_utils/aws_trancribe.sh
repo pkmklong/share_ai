@@ -5,8 +5,8 @@ function transcribe() {
     start-transcription-job \
     --transcription-job-name test \
     --language-code en-US \
-    --media-format mp4 \
-    --media MediaFileUri=https://s3.amazon.com/aws-bucket-fun/testing.mp4 \
+    --media-format $1 \
+    --media MediaFileUri=https://s3.amazon.com/aws-bucket-fun/$2.$1 \
     --output-bucket-name aws-bucket-fun
     }
 
