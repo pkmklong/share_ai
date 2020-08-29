@@ -29,23 +29,21 @@ transcription_service = transcription_service.TranscriptionService(storage_servi
 
 
 filename = st.text_input('Enter a file path:')
-#try:
-#    with open(filename) as input:
-#        st.text(input.read())
-#        text = input.read()
-#except FileNotFoundError:
-#    st.error('File not found.')  
 if filename:
-    #file_bytes = bytes(text, 'utf-8')
-#     file = open(filename, 'rb')
-#     file_bytes = base64.b64decode(file)
     file_info = storage_service.upload_file(filename)
     st.write(file_info)
     
     recording_id = file_info["fileId"]
-    #recording_id = file_info["fileUrl"] 
     transcription_text = transcription_service.transcribe_audio(recording_id)
     st.write(transcription_text)
+    
+text = st.text_input("for wordcloud")
+if text:
+    wordcloud = WordCloud().generate(text)
+
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    st.pyplot()
     
     
 sentence = st.text_input('Write here:') 
