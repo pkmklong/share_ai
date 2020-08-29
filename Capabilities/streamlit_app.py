@@ -32,10 +32,18 @@ filename = st.text_input('Enter a file path:')
 if filename:
     file_info = storage_service.upload_file(filename)
     st.write(file_info)
-    
     recording_id = file_info["fileId"]
+    
+if recording_id:
     transcription_text = transcription_service.transcribe_audio(recording_id)
     st.write(transcription_text)
+       
+if transcription_text:
+    wordcloud = WordCloud().generate(transcription_text)
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    st.pyplot()
+
     
 text = st.text_input("for wordcloud")
 if text:
