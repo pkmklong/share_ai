@@ -4,6 +4,7 @@ from chalicelib import storage_service
 from chalicelib import transcription_service
 import base64
 import json
+import os
 
 #####
 # chalice app configuration
@@ -21,10 +22,16 @@ transcription_service = transcription_service.TranscriptionService(storage_servi
 #  Welcome to Reflect :) 
 """
 
-uploaded_file = st.file_uploader("Choose input file", type="txt")
-if uploaded_file is not None:
-    file_bytes = base64.b64decode(uploaded_file)
-    file_info = storage_service.upload_file(file_bytes, uploaded_file)
+
+filename = st.text_input('Enter a file path:')
+try:
+    with open(filename) as input:
+        st.text(input.read())
+except FileNotFoundError:
+    st.error('File not found.')  
+if filename:
+    file_bytes = base64.b64decode(filename)
+    file_info = storage_service.upload_file(file_bytes, filename)
     
   
 sentence = st.text_input('Write here:') 
