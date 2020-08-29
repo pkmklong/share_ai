@@ -1,4 +1,4 @@
-# musings
+# reflect
 POC for IOS nlp analytics
 
 Structure/features:
