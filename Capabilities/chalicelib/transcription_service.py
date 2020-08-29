@@ -15,7 +15,7 @@ class TranscriptionService:
         POLL_DELAY = 5
 
         job_name = file_name + '-trans-' + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        media_type = Path(file_name).suffix
+        media_type = Path(file_name).suffix[1:]
 
         response = self.client.start_transcription_job(
             TranscriptionJobName = job_name,
