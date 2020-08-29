@@ -23,7 +23,8 @@ transcription_service = transcription_service.TranscriptionService(storage_servi
 
 uploaded_file = st.file_uploader("Choose input file", type="txt")
 if uploaded_file is not None:
-    file_info = storage_service.upload_file(file_bytes, file_name)
+    file_bytes = base64.b64decode(uploaded_file)
+    file_info = storage_service.upload_file(file_bytes, uploaded_file)
     
   
 sentence = st.text_input('Write here:') 
