@@ -1,5 +1,5 @@
 import boto3
-
+from pathlib import Path
 
 class StorageService:
     def __init__(self, storage_location):
@@ -9,8 +9,9 @@ class StorageService:
     def get_storage_location(self):
         return self.bucket_name
 
-    def upload_file(self, data):
-        self.client.upload_file(Key = data, Bucket = self.bucket_name, Filename = file_name)
+    def upload_file(self, file_path):
+        file_name = Path(file_path).name
+        self.client.upload_file(Key = file_path, Bucket = self.bucket_name, Filename = file_name)
         return {'fileId': file_name,
                 'fileUrl': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name}
    
