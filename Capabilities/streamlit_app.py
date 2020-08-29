@@ -29,15 +29,15 @@ transcription_service = transcription_service.TranscriptionService(storage_servi
 
 
 filename = st.text_input('Enter a file path:')
-try:
-    with open(filename) as input:
-        st.text(input.read())
-        text = input.read()
-except FileNotFoundError:
-    st.error('File not found.')  
-if text:
-    file_bytes = bytes(text, 'utf-8')
-    #file_bytes = base64.b64decode(filename)
+#try:
+#    with open(filename) as input:
+#        st.text(input.read())
+#        text = input.read()
+#except FileNotFoundError:
+#    st.error('File not found.')  
+if filename:
+    #file_bytes = bytes(text, 'utf-8')
+    file_bytes = base64.b64decode(filename)
     file_info = storage_service.upload_file(file_bytes, text)
     
   
