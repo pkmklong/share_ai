@@ -47,7 +47,7 @@ if filename:
     transcription_text = transcription_service.transcribe_audio(recording_id)
     st.write(filetranscription_text_info)
     
-     return {
+    return {
          'text': transcription_text,
      } 
   
