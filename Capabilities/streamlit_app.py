@@ -38,7 +38,7 @@ filename = st.text_input('Enter a file path:')
 if filename:
     #file_bytes = bytes(text, 'utf-8')
     file_bytes = base64.b64decode(filename)
-    file_info = storage_service.upload_file(file_bytes, text)
+    file_info = storage_service.upload_file(file_bytes, filename)
     
   
 sentence = st.text_input('Write here:') 
