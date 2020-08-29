@@ -37,9 +37,9 @@ filename = st.text_input('Enter a file path:')
 #    st.error('File not found.')  
 if filename:
     #file_bytes = bytes(text, 'utf-8')
-    file = open(filename, 'rb')
-    file_bytes = base64.b64decode(file)
-    file_info = storage_service.upload_file(file_bytes, file)
+#     file = open(filename, 'rb')
+#     file_bytes = base64.b64decode(file)
+    file_info = storage_service.upload_file(filename)
     
   
 sentence = st.text_input('Write here:') 
