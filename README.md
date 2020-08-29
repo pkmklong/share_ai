@@ -12,4 +12,6 @@ Structure/features:
 * IOS app
   * SwiftUI
 
+Tentative Workflow<br>
+<img src="https://github.com/pkmklong/reflect/blob/master/images/reflect.png" height="200"  class="center" title="Demo visualization">
 
