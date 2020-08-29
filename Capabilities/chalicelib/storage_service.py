@@ -1,6 +1,5 @@
 import boto3
 
-#s3.meta.client.upload_file('filename', 'bucketname', 'desired filename in s3')
 
 class StorageService:
     def __init__(self, storage_location):
@@ -10,19 +9,11 @@ class StorageService:
     def get_storage_location(self):
         return self.bucket_name
 
-    def upload_file(self, file_name):
-        self.client.upload_file(Key = file_name, Bucket = self.bucket_name, Filename = file_name)
+    def upload_file(self, data):
+        self.client.upload_file(Key = data, Bucket = self.bucket_name, Filename = file_name)
         return {'fileId': file_name,
                 'fileUrl': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name}
-    
-#    def upload_file(self, file_bytes, file_name):
-#        self.client.put_object(Bucket = self.bucket_name,
-#                               Body = file_bytes,
-#                               Key = file_name,
-#                               ACL = 'public-read')
-#
-#        return {'fileId': file_name,
-#                'fileUrl': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name}
+   
 
     def get_file(self, file_name):
         response = self.client.get_object(Bucket = self.bucket_name, Key = file_name)
