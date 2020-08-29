@@ -33,9 +33,7 @@ if sentence:
 
 def translate_recording(recording_id):
     #request_data = json.loads(app.current_request.raw_body)
-    #from_lang = request_data['fromLang']
-    to_lang = "eng-US"
-
+    from_lang = "eng-US"
     transcription_text = transcription_service.transcribe_audio(recording_id, from_lang)
 
     return {
