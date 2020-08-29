@@ -47,10 +47,7 @@ if filename:
     transcription_text = transcription_service.transcribe_audio(recording_id)
     st.write(filetranscription_text_info)
     
-    return {
-         'text': transcription_text,
-     } 
-  
+    
 sentence = st.text_input('Write here:') 
 if sentence:
     file_bytes = bytes(sentence, 'utf-8')
