@@ -10,8 +10,8 @@ class StorageService:
         return self.bucket_name
 
     def upload_file(self, file_path):
-        file_name = Path(file_path).name
-        self.client.upload_file(Key = file_path, Bucket = self.bucket_name, Filename = file_name)
+        name = Path(file_path).name
+        self.client.upload_file(Filename = file_path, Bucket = self.bucket_name, Key = name)
         return {'fileId': file_name,
                 'fileUrl': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name}
    
