@@ -39,7 +39,7 @@ if filename:
     #file_bytes = bytes(text, 'utf-8')
 #     file = open(filename, 'rb')
 #     file_bytes = base64.b64decode(file)
-    file_info = storage_service.upload_file(filename)
+    file_info = storage_service.upload_file(Filename = filename)
     
   
 sentence = st.text_input('Write here:') 
