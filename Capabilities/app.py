@@ -1,42 +1,6 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@pkmklong 
-PacktPublishing
-/
-Hands-On-Artificial-Intelligence-on-Amazon-Web-Services
-8
-28
-Code
-Issues
-Pull requests
-Actions
-Wiki
-Security
-Insights
-Hands-On-Artificial-Intelligence-on-Amazon-Web-Services/Chapter04/Capabilities/app.py /
-@dineshpackt
-dineshpackt Code files updated
-Latest commit bc5911a on Oct 8, 2019
- History
- 1 contributor
-71 lines (54 sloc)  2.18 KB
-  
-Code navigation is available!
-Navigate your code with ease. Click on function and method calls to jump to their definitions or references in the same repository. Learn more
-
 from chalice import Chalice
 from chalicelib import storage_service
 from chalicelib import transcription_service
-from chalicelib import translation_service
-from chalicelib import speech_service
-
-
 import base64
 import json
 
