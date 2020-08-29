@@ -13,5 +13,5 @@ Structure/features:
   * SwiftUI
 
 Tentative Workflow<br>
-<img src="https://github.com/pkmklong/reflect/blob/master/images/reflect.png" height="200"  class="center" title="Demo visualization">
+<img src="https://github.com/pkmklong/reflect/blob/master/images/reflect_flow.png" height="200"  class="center" title="Demo visualization">
 
