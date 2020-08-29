@@ -41,7 +41,7 @@ if filename:
 #     file_bytes = base64.b64decode(file)
     file_info = storage_service.upload_file(filename)
     st.write(file_info)
-    recording_id = file_info[fileId]
+    recording_id = file_info["fileId"]
     transcription_text = transcription_service.transcribe_audio(recording_id, from_lang)
 
 #     return {
