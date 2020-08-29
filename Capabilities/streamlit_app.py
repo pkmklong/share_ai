@@ -50,6 +50,6 @@ if text:
 
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
-    plt.show()
+    st.pyplot()
 
 
