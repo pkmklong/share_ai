@@ -37,7 +37,7 @@ if filename:
 sentence = st.text_input('Write here:') 
 if sentence:
     file_bytes = bytes(sentence, 'utf-8')
-    file_info = storage_service.upload_file(file_bytes, sentense)
+    file_info = storage_service.upload_file(file_bytes, sentence)
     
 
 
