@@ -5,6 +5,11 @@ from chalicelib import transcription_service
 import base64
 import json
 import os
+from os import path
+from PIL import Image
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+import matplotlib.pyplot as plt
+
 
 #####
 # chalice app configuration
@@ -38,14 +43,13 @@ sentence = st.text_input('Write here:')
 if sentence:
     file_bytes = bytes(sentence, 'utf-8')
     file_info = storage_service.upload_file(file_bytes, sentence)
-    
+   
+text = st.text_input("for wordcloud")
+if text:
+    wordcloud = WordCloud().generate(text)
+
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    plt.show()
 
 
-#def translate_recording(recording_id):
-#    #request_data = json.loads(app.current_request.raw_body)
-#    from_lang = "eng-US"
-#    transcription_text = transcription_service.transcribe_audio(recording_id, from_lang)
-#
-#    return {
-#        'text': transcription_text,
-#    }

@@ -9,6 +9,9 @@ verify_ssl = true
 boto3 = "*"
 chalice = "*"
 streamlit = "*"
+wordcloud = "*"
+pillow = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.7"
