@@ -40,7 +40,12 @@ if filename:
 #     file = open(filename, 'rb')
 #     file_bytes = base64.b64decode(file)
     file_info = storage_service.upload_file(filename)
-    
+    print(file_info)
+#     transcription_text = transcription_service.transcribe_audio(recording_id, from_lang)
+
+#     return {
+#         'text': transcription_text,
+#     } 
   
 sentence = st.text_input('Write here:') 
 if sentence:
