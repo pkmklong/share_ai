@@ -42,8 +42,8 @@ if filename:
     file_info = storage_service.upload_file(filename)
     st.write(file_info)
     
-    #recording_id = file_info["fileId"]
-    recording_id = file_info["fileUrl"] 
+    recording_id = file_info["fileId"]
+    #recording_id = file_info["fileUrl"] 
     transcription_text = transcription_service.transcribe_audio(recording_id)
     st.write(filetranscription_text_info)
     
