@@ -18,5 +18,26 @@ transcription_service = transcription_service.TranscriptionService(storage_servi
 
 
 """
-#  Welcome to Reflect!
+#  Welcome to Reflect :) 
 """
+
+uploaded_file = st.file_uploader("Choose input file", type="txt")
+if uploaded_file is not None:
+    file_info = storage_service.upload_file(file_bytes, file_name)
+    
+  
+sentence = st.text_input('Write here:') 
+if sentence:
+    file_bytes = base64.b64decode(request_data['filebytes'])
+
+
+def translate_recording(recording_id):
+    #request_data = json.loads(app.current_request.raw_body)
+    #from_lang = request_data['fromLang']
+    to_lang = "eng-US"
+
+    transcription_text = transcription_service.transcribe_audio(recording_id, from_lang)
+
+    return {
+        'text': transcription_text,
+    }
