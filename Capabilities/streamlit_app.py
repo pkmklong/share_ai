@@ -45,7 +45,7 @@ if filename:
     recording_id = file_info["fileId"]
     #recording_id = file_info["fileUrl"] 
     transcription_text = transcription_service.transcribe_audio(recording_id)
-    st.write(filetranscription_text_info)
+    st.write(transcription_text)
     
     
 sentence = st.text_input('Write here:') 
