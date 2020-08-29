@@ -2,6 +2,7 @@ import boto3
 import datetime
 import time
 import json
+from pathlib import Path
 
 
 class TranscriptionService:
@@ -14,11 +15,12 @@ class TranscriptionService:
         POLL_DELAY = 5
 
         job_name = file_name + '-trans-' + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        format = Path(file_name).stem
 
         response = self.client.start_transcription_job(
             TranscriptionJobName = job_name,
             LanguageCode = "en-US",
-            MediaFormat = 'mp4',
+            MediaFormat = format,
             Media = {
                 'MediaFileUri': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name
             },
