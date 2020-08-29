@@ -9,6 +9,10 @@ from os import path
 from PIL import Image
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
 #####
@@ -44,6 +48,17 @@ if transcription_text:
     plt.axis("off")
     st.pyplot()
 
+if transcription_text:
+    text = word_tokenize(transcription_text)
+    stopWords = set(stopwords.words('english'))
+    text = [w for w in text if w not in stopWords]
+    #ps = PorterStemmer()
+    
+    analyser = SentimentIntensityAnalyzer()
+    score = analyser.polarity_scores(text)
+    st.write("{:-<40} {}".format(text, str(score)))
+    
+    
     
 text = st.text_input("for wordcloud")
 if text:
