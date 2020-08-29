@@ -18,7 +18,7 @@ class TranscriptionService:
         response = self.client.start_transcription_job(
             TranscriptionJobName = job_name,
             LanguageCode = "en-US",
-            MediaFormat = 'wav',
+            MediaFormat = 'mp4',
             Media = {
                 'MediaFileUri': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name
             },
