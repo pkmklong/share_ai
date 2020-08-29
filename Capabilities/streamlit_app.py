@@ -41,12 +41,15 @@ if filename:
 #     file_bytes = base64.b64decode(file)
     file_info = storage_service.upload_file(filename)
     st.write(file_info)
-    recording_id = file_info["fileId"]
+    
+    #recording_id = file_info["fileId"]
+    recording_id = file_info["fileUrl"] 
     transcription_text = transcription_service.transcribe_audio(recording_id)
-
-#     return {
-#         'text': transcription_text,
-#     } 
+    st.write(filetranscription_text_info)
+    
+     return {
+         'text': transcription_text,
+     } 
   
 sentence = st.text_input('Write here:') 
 if sentence:
