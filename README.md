@@ -1,4 +1,4 @@
-# share_ai
+# musings
 POC for IOS nlp analytics
 
 Structure/features:
