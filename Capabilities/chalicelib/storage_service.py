@@ -1,6 +1,6 @@
 import boto3
 
-s3.meta.client.upload_file('filename', 'bucketname', 'desired filename in s3')
+#s3.meta.client.upload_file('filename', 'bucketname', 'desired filename in s3')
 
 class StorageService:
     def __init__(self, storage_location):
