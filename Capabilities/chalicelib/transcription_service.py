@@ -15,12 +15,12 @@ class TranscriptionService:
         POLL_DELAY = 5
 
         job_name = file_name + '-trans-' + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        format = Path(file_name).stem
+        media_type = Path(file_name).suffix
 
         response = self.client.start_transcription_job(
             TranscriptionJobName = job_name,
             LanguageCode = "en-US",
-            MediaFormat = format,
+            MediaFormat = media_type,
             Media = {
                 'MediaFileUri': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name
             },
