@@ -28,14 +28,16 @@ if uploaded_file is not None:
   
 sentence = st.text_input('Write here:') 
 if sentence:
-    file_bytes = base64.b64decode(request_data['filebytes'])
+    file_bytes = base64.b64decode(sentence)
+    file_info = storage_service.upload_file(file_bytes, sentense)
+    
 
 
-def translate_recording(recording_id):
-    #request_data = json.loads(app.current_request.raw_body)
-    from_lang = "eng-US"
-    transcription_text = transcription_service.transcribe_audio(recording_id, from_lang)
-
-    return {
-        'text': transcription_text,
-    }
+#def translate_recording(recording_id):
+#    #request_data = json.loads(app.current_request.raw_body)
+#    from_lang = "eng-US"
+#    transcription_text = transcription_service.transcribe_audio(recording_id, from_lang)
+#
+#    return {
+#        'text': transcription_text,
+#    }
