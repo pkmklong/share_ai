@@ -55,7 +55,7 @@ if filename:
     
     analyser = SentimentIntensityAnalyzer()
     score = analyser.polarity_scores(text)
-    st.write(f"{score})
+    st.write(f"{score}")
            
     df_sent = pd.DataFrame({k:[v] for k, v in score.items()}) 
     plt.figure(figsize=(8,6))
