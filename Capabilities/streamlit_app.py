@@ -18,6 +18,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import seaborn as sns
 import pandas as pd
 
+st.set_option('deprecation.showfileUploaderEncoding', False)
 
 #####
 # chalice app configuration
