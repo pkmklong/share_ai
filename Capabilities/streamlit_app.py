@@ -37,20 +37,16 @@ transcription_service = transcription_service.TranscriptionService(storage_servi
 filename = st.text_input('Enter a file path:')
 if filename:
     file_info = storage_service.upload_file(filename)
-    st.write(file_info)
     recording_id = file_info["fileId"]
-    
-if recording_id:
+
     transcription_text = transcription_service.transcribe_audio(recording_id)
     st.write(transcription_text)
-       
-if transcription_text:
+
     wordcloud = WordCloud().generate(transcription_text)
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
     st.pyplot()
 
-if transcription_text:
     text = word_tokenize(transcription_text)
     stopWords = set(stopwords.words('english'))
     text = [w for w in text if w not in stopWords]
@@ -58,7 +54,7 @@ if transcription_text:
     
     analyser = SentimentIntensityAnalyzer()
     score = analyser.polarity_scores(text)
-    st.write("{:-<40} {}".format(text, str(score)))
+#     st.write("{:-<40} {}".format(text, str(score)))
     
     
     
