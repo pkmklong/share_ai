@@ -61,7 +61,7 @@ if filename:
     df_sent = pd.DataFrame({k:[v] for k, v in score.items()}).T.reset_index() 
     df_sent.columns = ["Sentiment", "Frequency"] 
     plt.figure(figsize=(8,6))
-    sns.set(style="whitegrid")
+    sns.set(style="white")
     ax = sns.barplot(x="Sentiment", y="Frequency",data=df_sent)
     plt.ylabel('Sentiment')
     plt.xlabel('Frequency')
