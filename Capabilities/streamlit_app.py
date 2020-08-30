@@ -62,9 +62,9 @@ if filename:
     df_sent.columns = ["Sentiment", "Frequency"] 
     plt.figure(figsize=(8,6))
     sns.set(style="white")
-    ax = sns.barplot(x="Sentiment", y="Frequency",data=df_sent)
-    plt.ylabel('Sentiment')
-    plt.xlabel('Frequency')
+    ax = sns.barplot(y="Sentiment", x="Frequency",data=df_sent)
+    plt.xlabel('Sentiment')
+    plt.ylabel('Frequency')
     plt.title('Polarity')
     st.pyplot()
 
