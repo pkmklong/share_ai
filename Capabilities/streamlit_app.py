@@ -69,6 +69,14 @@ if filename:
     st.pyplot()
 
     
+ 
+
+
+uploaded_file = st.file_uploader("Choose a file", type=['txt', 'jpg'])
+if uploaded_file is not None:
+    pass
+    
+    
     
 text = st.text_input("for wordcloud")
 if text:
