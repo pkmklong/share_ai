@@ -58,9 +58,11 @@ if filename:
     score = analyser.polarity_scores(text)
     st.write(f"{score}")
            
-    df_sent = pd.DataFrame({k:[v] for k, v in score.items()}) 
+    df_sent = pd.DataFrame({k:[v] for k, v in score.items()}).T
+    df_sent.columns = ["Polarity"] 
     plt.figure(figsize=(8,6))
-    ax = sns.regplot(x="neg", y="pos",fit_reg=False, scatter_kws={'alpha':0.5},data=df_sent)
+    sns.set(style="whitegrid")
+    ax = sns.barplot(x="neg", y="pos",fit_reg=False, scatter_kws={'alpha':0.5},data=df_sent)
     plt.ylabel('Positive Frequency')
     plt.xlabel('Negative Frequency')
     plt.title('Negative Frequency vs Positive Frequency')
