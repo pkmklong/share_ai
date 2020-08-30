@@ -16,6 +16,7 @@ import nltk
 nltk.download('punkt')
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import seaborn as sns
+import pandas as pd
 
 
 #####
