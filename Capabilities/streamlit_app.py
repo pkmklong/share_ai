@@ -60,7 +60,7 @@ if filename:
            
     df_sent = pd.DataFrame({k:[v] for k, v in score.items()}) 
     plt.figure(figsize=(8,6))
-    ax = sns.regplot(x="negative", y="positive",fit_reg=False, scatter_kws={'alpha':0.5},data=df_sent)
+    ax = sns.regplot(x="neg", y="pos",fit_reg=False, scatter_kws={'alpha':0.5},data=df_sent)
     plt.ylabel('Positive Frequency')
     plt.xlabel('Negative Frequency')
     plt.title('Negative Frequency vs Positive Frequency')
