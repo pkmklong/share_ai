@@ -88,17 +88,17 @@ if text:
     st.pyplot()
     
     
-sentence = st.text_input('Write here:') 
-if sentence:
-    file_bytes = bytes(sentence, 'utf-8')
-    file_info = storage_service.upload_file(file_bytes, sentence)
-   
-text = st.text_input("for wordcloud")
-if text:
-    wordcloud = WordCloud().generate(text)
-
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis("off")
-    st.pyplot()
-
+#sentence = st.text_input('Write here:') 
+#if sentence:
+#    file_bytes = bytes(sentence, 'utf-8')
+#    file_info = storage_service.upload_file(file_bytes, sentence)
+#   
+#text = st.text_input("for wordcloud")
+#if text:
+#    wordcloud = WordCloud().generate(text)
+#
+#    plt.imshow(wordcloud, interpolation='bilinear')
+#    plt.axis("off")
+#    st.pyplot()
+#
 
