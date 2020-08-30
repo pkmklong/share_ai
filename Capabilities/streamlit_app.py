@@ -49,7 +49,7 @@ if filename:
 
     text = word_tokenize(transcription_text)
     stopWords = set(stopwords.words('english'))
-    text = [w for w in text if w not in stopWords]
+    text = " ".join([w for w in text if w not in stopWords])
     #ps = PorterStemmer()
     
     analyser = SentimentIntensityAnalyzer()
