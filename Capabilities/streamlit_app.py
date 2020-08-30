@@ -72,7 +72,7 @@ if filename:
  
 
 
-uploaded_file = st.file_uploader("Choose a file", type=['txt', 'jpg'])
+uploaded_file = st.file_uploader("Choose a file", type=['txt', 'wav', 'mp3', 'mp4'])
 if uploaded_file is not None:
     pass
     
