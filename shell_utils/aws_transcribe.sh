@@ -3,11 +3,11 @@
 function transcribe() {
     aws transcribe \
     start-transcription-job \
-    --transcription-job-name test \
+    --transcription-job-name $1 \
     --language-code en-US \
-    --media-format $1 \
-    --media MediaFileUri=https://s3.amazon.com/aws-bucket-fun/$2.$1 \
+    --media-format wav \
+    --media MediaFileUri=https://s3.amazon.com/aws-bucket-fun/ios.wav \
     --output-bucket-name aws-bucket-fun
     }
 
-transcribe
+transcribe $1 $2
