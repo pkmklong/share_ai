@@ -15,6 +15,7 @@ from nltk.stem import PorterStemmer
 import nltk
 nltk.download('punkt')
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import seaborn as sns
 
 
 #####
@@ -55,7 +56,15 @@ if filename:
     analyser = SentimentIntensityAnalyzer()
     score = analyser.polarity_scores(text)
     st.write(f"{score})
-    
+           
+    df_sent = pd.DataFrame({k:[v] for k, v in score.items()}) 
+    plt.figure(figsize=(8,6))
+    ax = sns.regplot(x="negative", y="positive",fit_reg=False, scatter_kws={'alpha':0.5},data=df_sent)
+    plt.ylabel('Positive Frequency')
+    plt.xlabel('Negative Frequency')
+    plt.title('Negative Frequency vs Positive Frequency')
+    st.pyplot()
+
     
     
 text = st.text_input("for wordcloud")
