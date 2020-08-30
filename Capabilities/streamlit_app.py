@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+nltk.download('punkt')
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 
