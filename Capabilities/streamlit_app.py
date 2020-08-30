@@ -73,9 +73,38 @@ if filename:
  
 
 
-uploaded_file = st.file_uploader("Choose a file", type=['txt', 'wav', 'mp3', 'mp4'])
-if uploaded_file is not None:
-    pass
+filename = st.file_uploader("Choose a file", type=['txt', 'wav', 'mp3', 'mp4'])
+if filename is not None:
+    file_info = storage_service.upload_file(filename)
+    recording_id = file_info["fileId"]
+
+    transcription_text = transcription_service.transcribe_audio(recording_id)
+    st.write(transcription_text)
+
+    wordcloud = WordCloud().generate(transcription_text)
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    st.pyplot()
+
+    text = word_tokenize(transcription_text)
+    stopWords = set(stopwords.words('english'))
+    text = " ".join([w for w in text if w not in stopWords])
+    #ps = PorterStemmer()
+    
+    analyser = SentimentIntensityAnalyzer()
+    score = analyser.polarity_scores(text)
+    st.write(f"{score}")
+           
+    df_sent = pd.DataFrame({k:[v] for k, v in score.items()}).T.reset_index() 
+    df_sent.columns = ["Sentiment", "Frequency"] 
+    plt.figure(figsize=(4,3))
+    sns.set(style="white")
+    ax = sns.barplot(y="Sentiment", x="Frequency",data=df_sent)
+    plt.xlabel('Sentiment')
+    plt.ylabel('Frequency')
+    plt.title('Polarity')
+    st.pyplot()
+
     
     
     
