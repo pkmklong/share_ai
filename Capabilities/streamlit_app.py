@@ -54,7 +54,7 @@ if filename:
     
     analyser = SentimentIntensityAnalyzer()
     score = analyser.polarity_scores(text)
-#     st.write("{:-<40} {}".format(text, str(score)))
+    st.write("{:-<40} {}".format(text, str(score)))
     
     
     
