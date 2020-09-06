@@ -12,7 +12,7 @@ class StorageService:
 
     def upload_file(self, file_path):
         file_name = Path(file_path).name
-        file_name = f"{file_name.split(".")[0]}_{datetime.now}_{Path(file_name).suffix}"}
+        file_name = f"{file_name.split(".")[0]}_{datetime.now}_{Path(file_name).suffix}"
         self.client.upload_file(Filename = file_path, Bucket = self.bucket_name, Key = file_name)
         return {'fileId': file_name,
                 'fileUrl': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name}
