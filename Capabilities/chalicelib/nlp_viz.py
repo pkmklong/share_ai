@@ -28,7 +28,7 @@ def wordcloud_viz(text):
       plt.axis("off")
       st.pyplot()
       
-def sentiment_vis(text):
+def sentiment_viz(text):
 
       text = word_tokenize(transcription_text)
       stopWords = set(stopwords.words('english'))
