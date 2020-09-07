@@ -73,5 +73,5 @@ def find_topics(text: str):
                                            passes=10,
                                            alpha='auto',
                                            per_word_topics=True)
-      st.write(f"{lda_model.print_topics(num_words=5}")
+      st.write(f"{lda_model.print_topics(num_words=5)}")
       
