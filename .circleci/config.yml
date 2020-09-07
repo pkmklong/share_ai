@@ -4,7 +4,7 @@ defaults: &defaults
     - image: python:3.8
   working_directory: ~/project
   environment:
-    BASH_ENV: ".circleci/bash_env.sh"
+    BASH_ENV: "~/.bashrc"
   
 version: 2.1
 jobs:
@@ -25,7 +25,7 @@ jobs:
              paths: 
                 - /root/.env/lib/python3.8/site-packages
                 - /root/.env
-                - /root/.circleci/
+                - /root/.bashrc
     check_install:          
       <<: *defaults
       steps:
