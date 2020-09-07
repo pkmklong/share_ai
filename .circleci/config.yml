@@ -21,6 +21,16 @@ jobs:
              paths: 
                 - /root/.env/lib/python3.8/site-packages
                 - /root/.env
+    check_install:          
+      <<: *defaults
+      steps:
+        - checkout  # checkout source code to working directory
+        - restore_cache:
+             keys:
+               - "build_deps"
+        - run:
+            command: |
+               ./app.sh
     test:          
       <<: *defaults
       steps:
@@ -36,3 +46,6 @@ workflows:
   integration:
     jobs:
       - build
+    check_install:
+      require:
+         - build
