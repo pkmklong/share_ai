@@ -2,13 +2,13 @@ from setuptools import setup
 
 
 setup(name='reflect',
-      version='1.0dev',
+      version='1.0',
       description='WIP NLP RT NLP analytics',
       author='Patrick Long',
       author_email='patrick.long@gmail.com',
       #py_modules=['runner'],
       packages=
-      ['reflect'],
+      ['reflect',],
       package_dir = {'': 'src'},
       #scripts=['src/reflect/.py'],
       include_package_data=True,
