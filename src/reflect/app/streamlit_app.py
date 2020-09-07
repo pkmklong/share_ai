@@ -1,5 +1,5 @@
 import streamlit as st
-from reflect import storage_service, transcription_service, nlp_viz
+from reflect import storage_service, transcription_service, nlp_viz, find_topics
 #import base64
 import json
 import os
@@ -35,7 +35,8 @@ if filename:
     
     nlp_viz.wordcloud_viz(transcription_text)
     nlp_viz.sentiment_viz(transcription_text)
-
+    find_topics(text)
+    
 
 filename = st.file_uploader("Choose a file", type=['txt', 'wav', 'mp3', 'mp4'])
 if filename is not None:
@@ -47,9 +48,11 @@ if filename is not None:
     
     nlp_viz.wordcloud_viz(transcription_text)
     nlp_viz.sentiment_viz(transcription_text)
+    find_topics(text)
     
     
 text = st.text_input("Free text")
 if text:
     nlp_viz.wordcloud_viz(text)
     nlp_viz.sentiment_viz(text)
+    find_topics(text)
