@@ -2,6 +2,7 @@ import boto3
 import datetime
 import time
 import json
+from pathlib import Path
 
 
 class TranscriptionService:
@@ -10,21 +11,16 @@ class TranscriptionService:
         self.bucket_name = storage_service.get_storage_location()
         self.storage_service = storage_service
 
-    def transcribe_audio(self, file_name, language):
+    def transcribe_audio(self, file_name):
         POLL_DELAY = 5
 
-        language_map = {
-            'en': 'en-US',
-            'es': 'es-US',
-            'fr': 'fr-CA'
-        }
-
         job_name = file_name + '-trans-' + datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        media_type = Path(file_name).suffix[1:]
 
         response = self.client.start_transcription_job(
             TranscriptionJobName = job_name,
-            LanguageCode = language_map[language],
-            MediaFormat = 'wav',
+            LanguageCode = "en-US",
+            MediaFormat = media_type,
             Media = {
                 'MediaFileUri': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name
             },

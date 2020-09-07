@@ -1,15 +1,13 @@
 import streamlit as st
-from chalice import Chalice
-from chalicelib import storage_service
-from chalicelib import transcription_service
-import base64
+from chalicelib import storage_service, transcription_service
+from chalicelib import nlp_viz
+#import base64
 import json
 import os
 from os import path
-from PIL import Image
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-import matplotlib.pyplot as plt
+import pandas as pd
 
+st.set_option('deprecation.showfileUploaderEncoding', False)
 
 #####
 # chalice app configuration
@@ -29,29 +27,30 @@ transcription_service = transcription_service.TranscriptionService(storage_servi
 
 
 filename = st.text_input('Enter a file path:')
-#try:
-#    with open(filename) as input:
-#        st.text(input.read())
-#        text = input.read()
-#except FileNotFoundError:
-#    st.error('File not found.')  
 if filename:
-    #file_bytes = bytes(text, 'utf-8')
-    file_bytes = base64.b64decode(filename)
-    file_info = storage_service.upload_file(file_bytes, filename)
+    file_info = storage_service.upload_file(filename)
+    recording_id = file_info["fileId"]
+
+    transcription_text = transcription_service.transcribe_audio(recording_id)
+    st.write(transcription_text)
     
-  
-sentence = st.text_input('Write here:') 
-if sentence:
-    file_bytes = bytes(sentence, 'utf-8')
-    file_info = storage_service.upload_file(file_bytes, sentence)
-   
-text = st.text_input("for wordcloud")
+    nlp_viz.wordcloud_viz(transcription_text)
+    nlp_viz.sentiment_viz(transcription_text)
+
+
+filename = st.file_uploader("Choose a file", type=['txt', 'wav', 'mp3', 'mp4'])
+if filename is not None:
+    file_info = storage_service.upload_file(filename)
+    recording_id = file_info["fileId"]
+
+    transcription_text = transcription_service.transcribe_audio(recording_id)
+    st.write(transcription_text)
+    
+    nlp_viz.wordcloud_viz(transcription_text)
+    nlp_viz.sentiment_viz(transcription_text)
+    
+    
+text = st.text_input("Free text")
 if text:
-    wordcloud = WordCloud().generate(text)
-
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis("off")
-    st.pyplot()
-
-
+    nlp_viz.wordcloud_viz(text)
+    nlp_viz.sentiment_viz(text)

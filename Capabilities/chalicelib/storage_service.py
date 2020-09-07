@@ -1,5 +1,7 @@
 import boto3
-
+from pathlib import Path
+from datetime import datetime
+import re
 
 class StorageService:
     def __init__(self, storage_location):
@@ -9,14 +11,17 @@ class StorageService:
     def get_storage_location(self):
         return self.bucket_name
 
-    def upload_file(self, file_bytes, file_name):
-        self.client.put_object(Bucket = self.bucket_name,
-                               Body = file_bytes,
-                               Key = file_name,
-                               ACL = 'public-read')
-
+    def upload_file(self, file_path):
+        file_name = Path(file_path).name
+        file = file_name.split('.')[0]
+        time = re.sub(r'-|:| ', '', str(datetime.now()))
+        suffix = Path(file_name).suffix
+        file_name = f"{file}_{time}_{suffix}"
+        
+        self.client.upload_file(Filename = file_path, Bucket = self.bucket_name, Key = file_name)
         return {'fileId': file_name,
                 'fileUrl': "http://" + self.bucket_name + ".s3.amazonaws.com/" + file_name}
+   
 
     def get_file(self, file_name):
         response = self.client.get_object(Bucket = self.bucket_name, Key = file_name)

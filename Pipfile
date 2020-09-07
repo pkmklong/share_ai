@@ -12,6 +12,10 @@ streamlit = "*"
 wordcloud = "*"
 pillow = "*"
 matplotlib = "*"
+nltk = "*"
+vadersentiment = "*"
+seaborn = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
