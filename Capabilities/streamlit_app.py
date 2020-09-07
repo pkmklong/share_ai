@@ -39,7 +39,6 @@ if filename:
     nlp_viz.sentiment_viz(transcription_text)
 
 
-
 filename = st.file_uploader("Choose a file", type=['txt', 'wav', 'mp3', 'mp4'])
 if filename is not None:
     file_info = storage_service.upload_file(filename)
@@ -56,6 +55,3 @@ text = st.text_input("Free text")
 if text:
     nlp_viz.wordcloud_viz(text)
     nlp_viz.sentiment_viz(text)
-    
-   
-
