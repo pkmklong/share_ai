@@ -24,7 +24,7 @@ def wordcloud_viz(text: str) -> plt.Figure:
       
  
 def tokenize(text: str) -> str:
-      """Token and remove step words"""
+      """Token and remove stop words"""
       
       text = word_tokenize(text)
       stopWords = set(stopwords.words('english'))
