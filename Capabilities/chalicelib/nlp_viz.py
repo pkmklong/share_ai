@@ -14,8 +14,8 @@ import seaborn as sns
 import pandas as pd
 
 
-def wordcloud_viz(text: str):
-      """create visual of wordclould"
+def wordcloud_viz(text: str) -> st.pyplot:
+      """Create visual of wordclould"""
 
       wordcloud = WordCloud().generate(text)
       plt.imshow(wordcloud, interpolation='bilinear')
@@ -23,7 +23,8 @@ def wordcloud_viz(text: str):
       st.pyplot()
       
       
-def sentiment_viz(text: str):
+def sentiment_viz(text: str) st.pyplot:
+       """Create visual of sentiment analysis"""
 
       text = word_tokenize(text)
       stopWords = set(stopwords.words('english'))
