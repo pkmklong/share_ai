@@ -1,6 +1,7 @@
 import boto3
 from pathlib import Path
 from datetime import datetime
+import re
 
 class StorageService:
     def __init__(self, storage_location):
