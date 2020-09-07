@@ -36,7 +36,8 @@ jobs:
         - run:
             command: |
                source /root/.env/bin/activate
-               ./app.sh    
+               ./app.sh
+            background: true
         - run:
             name: stop app
             command: |
