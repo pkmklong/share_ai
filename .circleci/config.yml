@@ -19,7 +19,7 @@ jobs:
               python -m pip install pytest pytest-cov
               python setup.py install
         - save_cache:
-             key: "deps_2"
+             key: "deps_3"
              paths: 
                 - /root/.env/lib/python3.8/site-packages
                 - /root/.env
@@ -29,11 +29,17 @@ jobs:
         - checkout  # checkout source code to working directory
         - restore_cache:
              keys:
-               - "deps_2"
+               - "deps_3"
         - run:
+            name: start app
             command: |
                source /root/.env/bin/activate
-               ./app.sh
+               ps
+               ./app.sh       
+        - run:
+            name: stop app
+            command: |
+               kill $(ps aux | grep "[p]ython" | awk '{print $2}')
     test:          
       <<: *defaults
       steps:
