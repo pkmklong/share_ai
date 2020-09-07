@@ -5,7 +5,6 @@ from chalicelib import nlp_viz
 import json
 import os
 from os import path
-#from PIL import Image
 import pandas as pd
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
