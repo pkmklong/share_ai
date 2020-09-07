@@ -57,10 +57,12 @@ def sentiment_viz(text: str) -> plt.Figure:
       st.pyplot()
 
       
-def find_topics(text)(text):
+def find_topics(text):
       """Identify topics"""
+      text = tokenize(text)
       words = corpora.Dictionary(text)
-      corpus = [words.doc2bow(doc) for doc in text]
+      corpus = [words.doc2bow(text)]
+      #corpus = [words.doc2bow(doc) for doc in text]
       
       lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                            id2word=words,
