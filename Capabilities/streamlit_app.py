@@ -106,8 +106,8 @@ if filename is not None:
     
 text = st.text_input("for wordcloud")
 if text:
-    nlp_viz.wordcloud_viz(transcription_text)
-    nlp_viz.sentiment_viz(transcription_text)
+    nlp_viz.wordcloud_viz(text)
+    nlp_viz.sentiment_viz(text)
     
     
 #sentence = st.text_input('Write here:') 
