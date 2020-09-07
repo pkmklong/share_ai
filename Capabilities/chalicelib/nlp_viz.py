@@ -23,14 +23,14 @@ import pandas as pd
 
 def wordcloud_viz(text):
 
-      wordcloud = WordCloud().generate(transcription_text)
+      wordcloud = WordCloud().generate(text)
       plt.imshow(wordcloud, interpolation='bilinear')
       plt.axis("off")
       st.pyplot()
       
 def sentiment_viz(text):
 
-      text = word_tokenize(transcription_text)
+      text = word_tokenize(text)
       stopWords = set(stopwords.words('english'))
       text = " ".join([w for w in text if w not in stopWords])
 
