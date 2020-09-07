@@ -34,11 +34,11 @@ jobs:
             name: start app
             command: |
                source /root/.env/bin/activate
-               ps
                ./app.sh       
         - run:
             name: stop app
             command: |
+               source /root/.env/bin/activate
                kill $(ps aux | grep "[p]ython" | awk '{print $2}')
     test:          
       <<: *defaults
