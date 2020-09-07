@@ -46,6 +46,6 @@ workflows:
   integration:
     jobs:
       - build
-    check_install:
-      require:
-         - build
+      - check_install:
+          requires:
+              - build 
