@@ -3,8 +3,8 @@ defaults: &defaults
   docker:
     - image: python:3.8
   working_directory: ~/project
-  environment:
-    BASH_ENV: "~/.bashrc"
+#  environment:
+#    BASH_ENV: "~/.bashrc"
  
 version: 2.1
 jobs:
@@ -19,7 +19,7 @@ jobs:
               python -m pip install pytest pytest-cov
               python setup.py install
         - save_cache:
-             key: "deps_5"
+             key: "deps_6"
              paths: 
                 - /root/.env/lib/python3.8/site-packages
                 - /root/.env
@@ -29,17 +29,17 @@ jobs:
         - checkout  # checkout source code to working directory
         - restore_cache:
              keys:
-               - "deps_5"
+               - "deps_6"
         - run:
             name: start app
             command: |
                source /root/.env/bin/activate
                ./app.sh       
-        - run:
-            name: stop app
-            command: |
-               source /root/.env/bin/activate
-               kill $(ps aux | grep "[p]ython" | awk '{print $2}')
+ #       - run:
+ #           name: stop app
+ #           command: |
+ #              source /root/.env/bin/activate
+ #              kill $(ps aux | grep "[p]ython" | awk '{print $2}')
     test:          
       <<: *defaults
       steps:
