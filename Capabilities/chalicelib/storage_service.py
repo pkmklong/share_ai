@@ -12,7 +12,10 @@ class StorageService:
 
     def upload_file(self, file_path):
         file_name = Path(file_path).name
-        file_name = f"{file_name.split('.')[0]}_{re.sub(r'-|:| ', '', str(datetime.now())}_{Path(file_name).suffix}"
+        file = file_name.split('.')[0]
+        time = re.sub(r'-|:| ', '', str(datetime.now()))
+        suffix = Path(file_name).suffix
+        file_name = f"{file}_{time}_{suffix}"
         
         self.client.upload_file(Filename = file_path, Bucket = self.bucket_name, Key = file_name)
         return {'fileId': file_name,
