@@ -23,7 +23,7 @@ def wordcloud_viz(text: str) -> plt.Figure:
       st.pyplot()
       
       
-def sentiment_viz(text: str) -> st.pyplot:
+def sentiment_viz(text: str) -> plt.Figure:
        """Create visual of sentiment analysis"""
 
       text = word_tokenize(text)
