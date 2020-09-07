@@ -24,7 +24,7 @@ def wordcloud_viz(text: str) -> plt.Figure:
       
       
 def sentiment_viz(text: str) -> plt.Figure:
-       """Create visual of sentiment analysis"""
+      """Create visual of sentiment analysis"""
 
       text = word_tokenize(text)
       stopWords = set(stopwords.words('english'))
