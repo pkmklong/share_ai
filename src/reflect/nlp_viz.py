@@ -62,7 +62,7 @@ def find_topics(text: str):
       
       text = word_tokenize(remove_stop_words(text))
       words = corpora.Dictionary(text)
-      corpus = [words.doc2bow([text])]
+      corpus = [words.doc2bow(text)]
       #corpus = [words.doc2bow(doc) for doc in text]
       
       lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
