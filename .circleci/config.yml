@@ -19,7 +19,7 @@ jobs:
               python -m pip install pytest pytest-cov
               python setup.py install
         - save_cache:
-             key: "deps_4"
+             key: "deps_5"
              paths: 
                 - /root/.env/lib/python3.8/site-packages
                 - /root/.env
@@ -29,7 +29,7 @@ jobs:
         - checkout  # checkout source code to working directory
         - restore_cache:
              keys:
-               - "deps_4"
+               - "deps_5"
         - run:
             name: start app
             command: |
