@@ -1,4 +1,6 @@
 # reflect
+[![<ORG_NAME>](https://circleci.com/gh/pkmklong/pycr.svg?style=shield)](https://app.circleci.com/pipelines/github/pkmklong)
+
 POC for IOS nlp analytics
 
 Structure/features:
