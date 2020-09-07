@@ -22,13 +22,20 @@ def wordcloud_viz(text: str) -> plt.Figure:
       plt.axis("off")
       st.pyplot()
       
+ 
+def tokenize(text: str) -> str:
+      """Token and remove step words"""
+      
+      text = word_tokenize(text)
+      stopWords = set(stopwords.words('english'))
+      text = " ".join([w for w in text if w not in stopWords])
+      return text
+
       
 def sentiment_viz(text: str) -> plt.Figure:
       """Create visual of sentiment analysis"""
 
-      text = word_tokenize(text)
-      stopWords = set(stopwords.words('english'))
-      text = " ".join([w for w in text if w not in stopWords])
+      text = tokenize(text)
 
       analyser = SentimentIntensityAnalyzer()
       score = analyser.polarity_scores(text)
