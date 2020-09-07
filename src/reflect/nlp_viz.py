@@ -28,7 +28,7 @@ def wordcloud_viz(text: str) -> plt.Figure:
       st.pyplot()
       
  
-def tokenize(text: str) -> str:
+def remove_stop_words(text: str) -> str:
       """Token and remove stop words"""
       
       text = word_tokenize(text)
@@ -40,7 +40,7 @@ def tokenize(text: str) -> str:
 def sentiment_viz(text: str) -> plt.Figure:
       """Create visual of sentiment analysis"""
 
-      text = tokenize(text)
+      text = remove_stop_words(text)
 
       analyser = SentimentIntensityAnalyzer()
       score = analyser.polarity_scores(text)
@@ -60,7 +60,7 @@ def sentiment_viz(text: str) -> plt.Figure:
 def find_topics(text: str):
       """Identify topics"""
       
-      text = tokenize(text)
+      text = word_tokenize(remove_stop_words(text))
       words = corpora.Dictionary(text)
       corpus = [words.doc2bow([text])]
       #corpus = [words.doc2bow(doc) for doc in text]
