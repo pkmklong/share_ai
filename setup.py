@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(name='reflect',
       version='1.0dev',
-      description='WIP NLP RT NLP analytics,
+      description='WIP NLP RT NLP analytics',
       author='Patrick Long',
       author_email='patrick.long@gmail.com',
       #py_modules=['runner'],
