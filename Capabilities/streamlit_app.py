@@ -5,16 +5,7 @@ from chalicelib import nlp_viz
 import json
 import os
 from os import path
-from PIL import Image
-#from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-#import matplotlib.pyplot as plt
-#from nltk.tokenize import word_tokenize
-#from nltk.corpus import stopwords
-#from nltk.stem import PorterStemmer
-#import nltk
-#nltk.download('punkt')
-#from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-#import seaborn as sns
+#from PIL import Image
 import pandas as pd
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -115,11 +106,8 @@ if filename is not None:
     
 text = st.text_input("for wordcloud")
 if text:
-    wordcloud = WordCloud().generate(text)
-
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis("off")
-    st.pyplot()
+    nlp_viz.wordcloud_viz(transcription_text)
+    nlp_viz.sentiment_viz(transcription_text)
     
     
 #sentence = st.text_input('Write here:') 
