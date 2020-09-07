@@ -12,9 +12,9 @@ setup(name='reflect',
       package_dir = {'': 'src'},
       #scripts=['src/reflect/.py'],
       include_package_data=True,
-      entry_points = {
-       'console_scripts': ['reflect=app/streamlit_app.py']
-        },
+      #entry_points = {
+      #  'console_scripts': ['reflect=app/streamlit_app']
+      #  },
       install_requires=[
           'pandas'
       ],
