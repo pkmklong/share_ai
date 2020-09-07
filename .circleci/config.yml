@@ -3,6 +3,8 @@ defaults: &defaults
   docker:
     - image: python:3.8
   working_directory: ~/project
+  environment:
+    BASH_ENV: ".circleci/bash_env.sh"
   
 version: 2.1
 jobs:
@@ -29,7 +31,7 @@ jobs:
         - checkout  # checkout source code to working directory
         - restore_cache:
              keys:
-               - "install_deps"
+               - "install_dep"
         - run:
             command: |
                ./app.sh
@@ -39,7 +41,7 @@ jobs:
         - checkout  # checkout source code to working directory
         - restore_cache:
              keys:
-               - "install_deps"
+               - "install_dep"
         - run:
             command: |
               source /root/.env/bin/activate
