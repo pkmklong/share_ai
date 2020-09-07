@@ -8,7 +8,7 @@ setup(name='reflect',
       author_email='patrick.long@gmail.com',
       #py_modules=['runner'],
       packages=
-      ['reflect']
+      ['reflect'],
       package_dir = {'': 'src'},
       #scripts=['src/reflect/.py'],
       include_package_data=True,
