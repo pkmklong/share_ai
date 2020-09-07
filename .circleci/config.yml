@@ -25,6 +25,7 @@ jobs:
              paths: 
                 - /root/.env/lib/python3.8/site-packages
                 - /root/.env
+                - /root/.circleci/
     check_install:          
       <<: *defaults
       steps:
