@@ -34,6 +34,7 @@ jobs:
              keys:
                - "deps_7"
         - run:
+            name: start app
             command: |
                source /root/.env/bin/activate
                ./app.sh
