@@ -57,7 +57,7 @@ def sentiment_viz(text: str) -> plt.Figure:
       st.pyplot()
 
       
-def topics(text):
+def find_topics(text)(text):
       """Identify topics"""
       words = corpora.Dictionary(text)
       corpus = [words.doc2bow(doc) for doc in text]
