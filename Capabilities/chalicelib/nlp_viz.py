@@ -1,13 +1,6 @@
 """WIP NLP analytics tools - POC to be refactored"""
 
 import streamlit as st
-#from chalice import Chalice
-#from chalicelib import storage_service
-#from chalicelib import transcription_service
-#import base64
-#import json
-#import os
-#from os import path
 from PIL import Image
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
@@ -21,14 +14,16 @@ import seaborn as sns
 import pandas as pd
 
 
-def wordcloud_viz(text):
+def wordcloud_viz(text: str) -> st.pyplot:
+      """create visual of wordclould"
 
       wordcloud = WordCloud().generate(text)
       plt.imshow(wordcloud, interpolation='bilinear')
       plt.axis("off")
       st.pyplot()
       
-def sentiment_viz(text):
+      
+def sentiment_viz(text: str) -> st.pyplot:
 
       text = word_tokenize(text)
       stopWords = set(stopwords.words('english'))
