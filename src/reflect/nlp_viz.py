@@ -13,6 +13,11 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import seaborn as sns
 import pandas as pd
 
+import gensim
+import gensim.corpora as corpora
+from gensim.utils import simple_preprocess
+from gensim.models import CoherenceModel
+
 
 def wordcloud_viz(text: str) -> plt.Figure:
       """Create visual of wordclould"""
@@ -50,3 +55,20 @@ def sentiment_viz(text: str) -> plt.Figure:
       plt.ylabel('Frequency')
       plt.title('Polarity')
       st.pyplot()
+
+      
+def topics(text):
+      """Identify topics"""
+      words = corpora.Dictionary(text)
+      corpus = [words.doc2bow(doc) for doc in text]
+      
+      lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
+                                           id2word=words,
+                                           num_topics=3, 
+                                           random_state=42,
+                                           update_every=1,
+                                           passes=10,
+                                           alpha='auto',
+                                           per_word_topics=True)
+      st.write(f"{lda_model.print_topics(num_words=5}")
+      
