@@ -1,13 +1,13 @@
 """WIP NLP analytics tools - POC to be refactored"""
 
 import streamlit as st
-from chalice import Chalice
-from chalicelib import storage_service
-from chalicelib import transcription_service
-import base64
-import json
-import os
-from os import path
+#from chalice import Chalice
+#from chalicelib import storage_service
+#from chalicelib import transcription_service
+#import base64
+#import json
+#import os
+#from os import path
 from PIL import Image
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
