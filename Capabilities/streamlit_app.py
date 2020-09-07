@@ -1,6 +1,5 @@
 import streamlit as st
-from chalicelib import storage_service, transcription_service
-from chalicelib import nlp_viz
+from utils import storage_service, transcription_service, nlp_viz
 #import base64
 import json
 import os
