@@ -17,3 +17,9 @@ Structure/features:
 Tentative Workflow<br>
 <img src="https://github.com/pkmklong/reflect/blob/master/images/reflect_flow.png" height="200"  class="center" title="Demo visualization">
 
+TODO:
+* <s>setup very basic MVP with AWS S3 and AWS audio translation</s>
+* <s>integrate into streamlit interface</s>
+* <s>setup CI with circleci</s>
+* <s>setup local deploy via docker</s>
+* <s>MVP deploy AWS
