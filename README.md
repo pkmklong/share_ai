@@ -23,4 +23,5 @@ TODO:
 * <s>setup CI with circleci</s>
 * <s>setup local deploy via docker</s>
 * MVP v1 deploy AWS
-* v2 MVP
+* refactor v1
+* plan v2 specs
