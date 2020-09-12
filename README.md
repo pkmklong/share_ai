@@ -22,4 +22,4 @@ TODO:
 * <s>integrate into streamlit interface</s>
 * <s>setup CI with circleci</s>
 * <s>setup local deploy via docker</s>
-* <s>MVP deploy AWS
+* MVP deploy AWS
