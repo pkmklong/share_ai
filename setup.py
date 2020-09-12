@@ -17,6 +17,14 @@ setup(name='reflect',
       #  },
       install_requires=[
           'pandas',
-          'numpy'
-      ],
+          'numpy',
+          'wordcloud',
+          'boto3',
+          'streamlit',
+          'pillow',
+          'matplotlib',
+          'nltk',
+          'vadersentiment',
+          'seaborn',
+          ],
         )
