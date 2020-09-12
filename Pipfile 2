@@ -16,8 +16,6 @@ nltk = "*"
 vadersentiment = "*"
 seaborn = "*"
 pandas = "*"
-spacy = "*"
-gensim = "*"
 
 [requires]
 python_version = "3.7"
