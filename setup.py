@@ -16,6 +16,7 @@ setup(name='reflect',
       #  'console_scripts': ['reflect=app/streamlit_app']
       #  },
       install_requires=[
-          'pandas'
+          'pandas',
+          'numpy'
       ],
         )
