@@ -26,5 +26,6 @@ setup(name='reflect',
           'nltk',
           'vadersentiment',
           'seaborn',
+          'spacy',
           ],
         )
