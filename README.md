@@ -22,6 +22,7 @@ TODO:
 * <s>integrate into streamlit interface</s>
 * <s>setup CI with circleci</s>
 * <s>setup local deploy via docker</s>
-* MVP v1 deploy AWS
+* <s>Deploy v1 on AWS w/out transcribe services</s>
+* Deploy v1 on AWS full MVP services
 * refactor v1
 * plan v2 specs
