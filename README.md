@@ -29,3 +29,6 @@ TODO:
 * refactor for MVP v2 functionality
 * Deploy v2 on AWS full MVP services
 * plan v3 specs - revisit and collect feedback
+* complete python v3
+* Evaluate v1 with Swift/IOS
+
