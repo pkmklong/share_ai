@@ -25,4 +25,7 @@ TODO:
 * <s>Deploy v1 on AWS w/out transcribe services</s>
 * Deploy v1 on AWS full MVP services
 * refactor v1
-* plan v2 specs
+* plan v2 specs - revisit and collect feedback
+* refactor for MVP v2 functionality
+* Deploy v2 on AWS full MVP services
+* plan v3 specs - revisit and collect feedback
